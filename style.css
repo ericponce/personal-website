@@ -1,0 +1,74 @@
+:root {
+    --white: #f3f4f8;
+    --lightestgray: #d2d4da;
+    --lightergray: #b2b5bd;
+    --lightgray: #9496a1;
+    --gray: #777986;
+    --darkgray: #5b5d6b;
+    --darkergray: #404252;
+    --darkestgray: #282a3a;
+    --black: #101233;
+}
+
+body {
+    background-color: var(--white);
+    font-family: Sans-Serif;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    height: 4em;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    font-size: 2em;
+
+    background-color: var(--lightgray);
+    color: var(--darkestgray);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--darkestgray);
+}
+
+.navitem {
+    display: flex;
+}
+
+.navitem a{
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+    color: white;
+}
+
+.navitem a:hover {
+    background-color: var(--gray);
+}
+
+main {
+    background-color: var(--lightestgray);
+    padding: 10px;
+}   
+
+.headshot {
+    width: 116px;
+    height: 144px;
+    float: left;
+    padding: 0em 1em;
+}
+.text {
+    text-indent: 2em;
+}
+

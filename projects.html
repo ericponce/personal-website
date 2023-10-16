@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Personal Projects</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="header.css">
+        <link href="http://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+			integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+			crossorigin="anonymous"></script>
+        <script
+            src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
+            integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0="
+            crossorigin="anonymous"></script>
+        <script src="common.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#accordion").accordion({
+                    collapsible: true,
+                    active: false,
+                    heightStyle: "content",
+                    icons: {"header": "custom-icon-triangle-right",
+                            "activeHeader": "custom-icon-triangle-down"}
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div id="header-placeholder"></div>
+        <div id="nav-placeholder"></div>
+        <main>
+            <div id="accordion">
+                <h3>Personal Website</h3>
+                <div>
+                    <p class="text">
+                        This personal website is an original custom HTML, CSS, and JS website. 
+                        The source code is hosted on Github and the website itself is published via AWS Amplify. 
+                    </p>
+                </div>
+                <h3>MQTT Visualizer</h3>
+                <div>
+                    <div style="text-align: center;">
+                    <img class="projectimg" src="resources/mqtt_visualizer_screenshot.png">
+                    </div>
+                    <p class="text">
+                        This webapp allows for visualizing of time-series data streamed from, e.g., IoT devices, over MQTT.
+                        It was developed for demonstrating new functionality for my graduate research lab's data-acquisition platform.
+                        It was then improved before publishing to <a href="https://github.com/ericponce/mqtt_visualizer">github</a>.
+                        Major improvements include adding configurability via JSON and allowing for streaming data from multiple MQTT brokers.
+                    </p>
+                </div>
+
+                <!-- <h3>Electronics FIRST</h3>
+                <div>
+                    <p class="text">
+                        
+                    </p>
+                </div>
+
+                <h3>6.115 Microcomputer Lab Teaching Assistant</h3>
+                <div>
+                    <p class="text">
+
+                    </p>
+                </div> -->
+
+                <h3>LTC Battery Management System - Electric Vehicle Team (EVT)</h3>
+                <div>
+                    <div style="text-align: center;">
+                        <img class="projectimg" src="resources/evt_opel_gt_battery1.png">
+                        <img class="projectimg" src="resources/evt_opel_gt_battery2.png">
+                    </div>
+                    <p class="text">
+                        For MIT's <a href="https://web.mit.edu/evt/index.html">Electric Vehicle Team</a> Opel GT Project, we required a battery management system (BMS) for a custom battery pack. 
+                        We found that BMS companies at the time were not willing to work with us, so we set out to build our <a href="https://github.com/ericponce/ltc-battery-management-system">own</a>, with the added benefit as serving as an educational exercise.
+                        I led the team to develop bare-metal firmware for an NXP LPC11Cx4 microcontroller that interfaced with battery management hardware centered around a LTC6804 12-cell integrated circuit.
+                        To support these efforts, I developed a bare-metal build system, code examples, unit testing infrastructure, and the overall system architecture.
+                        The main goal was safety for our Opel GT project, but the project eventually found successful use by MIT's <a href="https://www.mitsolar.com/">Solar Electric Vehicle Team</a> and MIT's <a href="https://fsae.mit.edu/">Formula SAE Team</a>.
+                    </p>
+                </div>
+
+                <h3>Opel GT EV Conversion Electrical Architecture - EVT</h3>
+                <div>
+                    <div style="text-align: center;">
+                        <img class="projectimg" src="resources/evt_opel_gt_arch.png">
+                        <img class="projectimg" src="resources/lpc11c_dev.png">
+                        <img class="projectimg" src="resources/lpc11c_wheel_velocity_sensor.png">
+                    </div>
+                    <p class="text">
+                        Along with <a href="https://engineering.mit.edu/fellows/nicolas-arango/">Nicolas Arango</a> (an incredible electrical engineer who taught me almost everything I know), I developed the electrical system architecture for the MIT <a href="https://web.mit.edu/evt/index.html">Electric Vehicle Team's</a> Opel GT EV conversion project.
+                        Here, we focused on modularity, so that we may reuse the work in future projects and to allow for development by younger team members, and safety.
+                        All of the modules communicated via CAN bus and were centered around LPC11Cx4 microcontrollers, for which I had done most of the firmware developing heavy lifting.
+                    </p>
+                </div>
+
+                <h3>CAN Specification Validator - EVT</h3>
+                <div>
+                    <p class="text">
+                        To support architectural design decisions, I, along with other members of MIT's <a href="https://web.mit.edu/evt/index.html">Electric Vehicle Team</a>, developed <a href="https://github.com/ericponce/can_validator">scripts</a> for validating a CAN bus specification.
+                        These scripts could take in a a textfile description of the various CAN bus messages that would move throughout a system and check that messages don't have repeated symbolic names or conflicting IDs.
+                        They would also check that defined data fields did not overlap and fit within the CAN frame data field, among a few other sanitary verifications.
+                    </p>
+                </div>
+
+                <h3>A123 Battery Integration - EVT</h3>
+                <div>
+                    <div style="text-align: center;">
+                        <img class="projectimg" src="resources/a123_module.jpg">
+                        <img class="projectimg" src="resources/a123_battery_integration.JPG">
+                    </div>
+                    <p class="text">
+                        MIT's <a href="https://web.mit.edu/evt/index.html">Electric Vehicle Team</a> was donated a palette of A123 Prismatic LiIon Battery Modules with built in BMS but with very little in the way of documentation.
+                        We also didn't have a safe way to charge these batteries.
+                        So, I developed <a href="https://github.com/ericponce/a123-battery-integration">hardware and firmware</a> for reading and controlling the integrated BMS boards, and for coordinating charging efforts with contactors (for safety) and a Brusa DC Charger over CAN.
+                        The focus for this project was safety and reliability, so that no one had to `babysit` the modules, and accurate cell balancing to prevent damage to the modules. 
+                    </p>
+                </div>
+
+                <h3>Conway's Game of Life - 6.115 Microcomputer Lab Final Project</h3>
+                <div>
+                    <div style="text-align: center;">
+                        <img class="projectimg" src="resources/6115_final_project_cropped.jpg">
+                    </div>
+                    <p class="text">
+                        For my 6.115 Microcomputer Lab final project I developed an implementation of Conway's game of life on a PSoC connected to a display over VGA. 
+                        This implementation had several features, including bluetooth/WiFi control, saving/loading state to/from an SD Card, and colorized tracking of cell lifetime.
+                        VGA was implemented entirely on the PSoC, leveraging DMA and it's extremely configurable hardware.
+                    </p>
+                </div>
+
+                <h3>E-Meter to CAN Translator - EVT</h3>
+                <div>
+                    <div style="text-align: center;">
+                        <img class="projectimg" src="resources/cycle-analyst-v3-dps.png">
+                    </div>
+                    <p class="text">
+                        Taking my new CAN skills from the NY Trike Project, I developed <a href="https://github.com/ericponce/emeter_translator">firmware</a> and hardware for taking an EBike Cycle Analyst's serial output messages and sending them over a CAN bus.
+                    </p>
+                </div>
+
+                <h3>NY Trike Electronic Brakes - EVT</h3>
+                <div>
+                    <div style="text-align: center;">
+                        <img class="projectimg" src="resources/evt_nytike.JPG">
+                        <img class="projectimg" src="resources/evt_nytrike_brakes_pcb.png">
+                        <img class="projectimg" src="resources/evt_nytrike_brakes.png">
+                    </div>
+                    <p class="text">
+                        To support MIT <a href="https://web.mit.edu/evt/index.html">Electric Vehicle Team's</a> NY Electric Trike Project, I developed a custom electronic brake system for slowing our extremely heavy battery pack.
+                        We needed a way of actuating a pair of rim brakes on the bike trailer, and while a mechanical linkage was preferred initially, mocking up the requirements for quick disconnects and cable pull routing lead us to shift to electrical actuation. 
+                        The system used a worm-driven motor to pull and release the brake cable; because this can not be back driven (a property of the work gear) the motor does not need to stall to continue apply brake force. 
+                        While the ME's worked on enclosures and mounting, we produced a schematic and a board layout for this task using an Attiny85 micro-controller at the center.
+                        I also developed firmware to support the control in a reliable and safe manner.  
+                    </p>
+                </div>
+
+                <h3>AVR Bit Bang Debug</h3>
+                <div>
+                    <p class="text">
+                        In the process of developing firmware for MIT's <a href="https://web.mit.edu/evt/index.html">Electric Vehicle Team</a>, I found the need for bit-banged serial output interface.
+                        We had run out of hardware serial blocks, and it seemed like a fun challenge, so I wrote my <a href="https://github.com/ericponce/Bit-Bang-Debug">own</a>.
+                    </p>
+                </div>
+
+                <h3>AVR Capacitive Touch</h3>
+                <div>
+                    <p class="text">
+                        Probably my first real venture into embedded system development, I was inspired to create a small library <a href="https://github.com/ericponce/avr-capacitive-touch">for supporting capacitive touch measurement using an ATTINY85</a>.
+                        This went on to be used in my Physics of Energy Freshman Seminar final project for non-invasively controlling thermostats.  
+                    </p>
+                </div>
+
+                <h3>Random Algorithms</h3>
+                <div>
+                    <p class="text">
+                        I started this <a href="https://github.com/ericponce/Random-Algorithms">project</a> in highschool in collaboration with <a href="https://www.linkedin.com/in/joshua-kirstein-b67971a4/">Joshua Kirstein</a> (an incredibly gifted software engineer). 
+                        It is a collection of fun algorithms written in Java, my language of choice at the time.
+                    </p>
+                </div>
+            </div>
+        </main>
+        <footer>
+            
+
+            
+        </footer>
+    </body>
+    
+</html>
